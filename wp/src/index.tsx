@@ -1,15 +1,23 @@
-/* import * as _ from 'lodash';
+import * as _ from 'lodash';
 class Greeter {
-  greeting: string;
+  age = 13
+  greeting: string
   constructor(message: string) {
     this.greeting = message;
   }
   greet() {
-    return _.join(['Hello123', ' ', this.greeting], '');
+    return _.join(['Hello', ' ', this.greeting], '');
   }
 };
 let greeter = new Greeter('world');
-console.log(greeter.greet()) */
+console.log(greeter.greet())
+class Child extends Greeter {
+  names = 88
+  name() {
+    return 'Dog'
+  }
+}
+console.log(new Child('TS'))
 
 // let isDone: boolean = true;
 
