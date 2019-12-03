@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/2-变量声明.tsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/3-interface.tsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/2-变量声明.tsx":
-/*!************************!*\
-  !*** ./src/2-变量声明.tsx ***!
-  \************************/
+/***/ "./src/3-interface.tsx":
+/*!*****************************!*\
+  !*** ./src/3-interface.tsx ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("/* function sumMatrix(matrix: number[][]) {\r\n  var sum = 0\r\n  for (var i = 0; i < matrix.length; i++) {\r\n    var currentRow = matrix[i]\r\n    for (var i = 0; i < currentRow.length; i++) {\r\n      sum += currentRow[i]   // 都改为j的话是 21\r\n    }\r\n  }\r\n  return sum\r\n}\r\nvar matrix = [\r\n  [1, 2, 3],\r\n  [4, 5, 6]\r\n]\r\nconsole.log(sumMatrix(matrix)) */ // 6\r\n/* for (var i = 0; i < 10; i++) {\r\n  // console.log(i)  // 直接输入是 0 - 9\r\n\r\n  // setTimeout(() => {\r\n  //   console.log(i)\r\n  // }, 100 * i)  // 10个10\r\n\r\n  (function(j) {\r\n    setTimeout(() => {\r\n      console.log(j)\r\n    }, 100 * j)\r\n  })(i)\r\n\r\n} */\r\n/* function foo() {\r\n  return a\r\n}\r\nfoo()\r\nlet a */\r\nfunction keepWholeObject(wholeObject) {\r\n    var a = wholeObject.a, _a = wholeObject.b, b = _a === void 0 ? 1001 : _a;\r\n    console.log(a);\r\n    console.log(b);\r\n}\r\nkeepWholeObject({ b: 1, a: 'u' });\r\n\n\n//# sourceURL=webpack:///./src/2-%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E.tsx?");
+eval("/* interface LabelledValue {\r\n  label: string\r\n}\r\nfunction printLabel(labelledObj: LabelledValue) {\r\n  console.log(labelledObj.label)\r\n}\r\nlet myObj = {size: 10, label: 'kk'}\r\nprintLabel(myObj) */\r\nvar myArray = ['Alice', 'Bob'];\r\n// myArray[1] = 'Mallory'; // error!  报错\r\n\n\n//# sourceURL=webpack:///./src/3-interface.tsx?");
 
 /***/ })
 

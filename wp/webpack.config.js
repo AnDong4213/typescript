@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src/2-变量声明.tsx'),
+  entry: path.resolve(__dirname, 'src/3-interface.tsx'),
   module: {
     rules: [
       {
