@@ -2,10 +2,9 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src/3-interface.tsx'),
+  entry: path.resolve(__dirname, 'src/3-interface_0118.ts'),
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
@@ -23,10 +22,14 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    overlay: {
+      warnings: true,
+      errors: false
+    }
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   }
 }
-
-

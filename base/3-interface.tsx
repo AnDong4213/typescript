@@ -70,7 +70,7 @@ function createSquare(config: SquareConfig): Square {
 // let a = createSquare(obj) // 不报错
 let a = createSquare({color: 'red', width: 67, bb: 9})  // 报错
 console.log(a) */
-// 绕开这些检查非常简单。 
+// 绕开这些检查非常简单。
 // 最简便的方法是使用类型断言： {color: 'red', width: 67, bb: 9}  as SquareConfig
 // 然而，最佳的方式是能够添加一个字符串索引签名，  [propName: string]: any
 // 还有最后一种跳过这些检查的方式,它就是将这个对象赋值给一个另一个变量： 因为 squareOptions 不会经过额外属性检查，

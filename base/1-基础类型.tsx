@@ -51,6 +51,7 @@ console.log(Color)
 // {0: "Red", Red: 0, Green: "yy", Blue: "kk"}
 console.log(c) //  yy
 console.log(d)  //  Red
+console.log(Color['Red'])  //  0
 console.log(e + '--------------------------------------') // undefined
 
 // any 在编程阶段还不清楚类型的变量指定一个类型
@@ -74,10 +75,11 @@ console.log(warnUser())
 let unusable: void = undefined
 
 // null 和 undefined    TypeScript里，undefined 和 null 两者各自有自己的类型分别叫做 undefined 和 null。 和 void 相似，它们的本身的类型用处不是很大： 当你指定了 --strictNullChecks 标记，null 和 undefined 只能赋值给 void 和它们各自
-// 默认情况下 null 和 undefined 是所有类型的子类型。 
+// 默认情况下 null 和 undefined 是所有类型的子类型。
 // let u: undefined = null   // 严格模式下不可以
 let u: undefined = undefined  // 严格模式下可以
-let m: null | number = 3
+let m: null | number = 37777
+console.log(m)
 
 // never类型   never 类型表示的是那些永不存在的值的类型。
 function error(message: string): never {
@@ -89,7 +91,7 @@ function fail() {
 // console.log(fail())
 // 返回never的函数必须存在无法达到的终点
 function infiniteLoop(): never {
-  while(true) {}
+  while (true) { }
 }
 
 // object   object表示非原始类型，也就是除 number，string，boolean，symbol，null或undefined 之外的类型
@@ -103,26 +105,3 @@ let someValue: any = 'hello'
 // let strL: number = (<string>someValue).length
 let strL: number = (someValue as string).length
 console.log(strL)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

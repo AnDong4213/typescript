@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/3-interface.tsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/3-interface_0118.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/3-interface.tsx":
-/*!*****************************!*\
-  !*** ./src/3-interface.tsx ***!
-  \*****************************/
+/***/ "./src/3-interface_0118.ts":
+/*!*********************************!*\
+  !*** ./src/3-interface_0118.ts ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("/* interface LabelledValue {\r\n  label: string\r\n}\r\nfunction printLabel(labelledObj: LabelledValue) {\r\n  console.log(labelledObj.label)\r\n}\r\nlet myObj = {size: 10, label: 'kk'}\r\nprintLabel(myObj) */\r\nvar myArray = ['Alice', 'Bob'];\r\n// myArray[1] = 'Mallory'; // error!  报错\r\n\n\n//# sourceURL=webpack:///./src/3-interface.tsx?");
+eval("var __extends = (this && this.__extends) || (function () {\r\n    var extendStatics = function (d, b) {\r\n        extendStatics = Object.setPrototypeOf ||\r\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\r\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\r\n        return extendStatics(d, b);\r\n    };\r\n    return function (d, b) {\r\n        extendStatics(d, b);\r\n        function __() { this.constructor = d; }\r\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\r\n    };\r\n})();\r\nvar p1 = { x: 2, y: 3 };\r\nvar a = [1, 2, 3];\r\nvar ro = a;\r\n// ro.push(9)\r\nconsole.log(ro);\r\nfunction createSquare(config) {\r\n    var newSquare = { color: 'white', area: 100 };\r\n    if (config.color) {\r\n        newSquare.color = config.color;\r\n    }\r\n    if (config.width) {\r\n        newSquare.area = config.width * config.width;\r\n    }\r\n    return newSquare;\r\n}\r\n// let obj = { color: 'red', width: 8, bb: 9 } // 就是squareOptions\r\n// let mySquare = createSquare(obj) // 不报错\r\n// let mySquare = createSquare({ color: 'red', width: 67, bb: 9 } as SquareConfig)  // 不报错\r\nvar mySquare = createSquare({ color: 'red', width: 5, bb: 9 });\r\nconsole.log(mySquare);\r\nvar mySearch = function (src, sub) {\r\n    var result = src.search(sub);\r\n    return result > -1;\r\n};\r\nconsole.log(mySearch('andong', 'an6'));\r\nvar arr = [99, 77, 666];\r\nconsole.log(arr[2]);\r\nvar arr2 = { a: 1, b: 9999 };\r\nconsole.log(arr2['b']);\r\n// TypeScript 支持两种索引签名：字符串和数字。 可以同时使用两种类型的索引，但是数字索引的返回值必须是字符串索引返回值类型的子类型。\r\nvar Animal = /** @class */ (function () {\r\n    function Animal() {\r\n    }\r\n    return Animal;\r\n}());\r\nvar Dog = /** @class */ (function (_super) {\r\n    __extends(Dog, _super);\r\n    function Dog() {\r\n        return _super !== null && _super.apply(this, arguments) || this;\r\n    }\r\n    return Dog;\r\n}(Animal));\r\nvar myArray2 = ['Alice', 'Bob', 'tom'];\r\n// myArray2[2] = '999' // 类型“ReadonlyStringArray”中的索引签名仅允许读取。\r\nconsole.log(myArray2);\r\n\n\n//# sourceURL=webpack:///./src/3-interface_0118.ts?");
 
 /***/ })
 

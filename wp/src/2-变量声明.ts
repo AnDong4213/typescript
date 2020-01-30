@@ -3,7 +3,7 @@
   for (var i = 0; i < matrix.length; i++) {
     var currentRow = matrix[i]
     for (var i = 0; i < currentRow.length; i++) {
-      sum += currentRow[i]   // 都改为j的话是 21 
+      sum += currentRow[i]   // 都改为j的话是 21
     }
   }
   return sum
@@ -35,21 +35,9 @@ console.log(sumMatrix(matrix)) */   // 6
 foo()
 let a */
 
-function keepWholeObject(wholeObject: {a: string, b?: number}) {
+function keepWholeObject(wholeObject: { a: string, b?: number }) {
   let { a, b = 1001 } = wholeObject
   console.log(a)
   console.log(b)
 }
-keepWholeObject({b: 1, a: 'u'})
-
-
-
-
-
-
-
-
-
-
-
-
+keepWholeObject({ b: 1, a: 'andong' })
