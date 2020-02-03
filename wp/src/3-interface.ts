@@ -115,9 +115,10 @@ interface NotOkay {
 } */
 
 interface NumberDictionary {
-  [index: string]: number
+  // [index: string]: number  // 报错
+  [index: number]: number
   length: number
-  // name: string   // 报错  `name`的类型与索引类型返回值的类型不匹配
+  /*  name: string */   // 报错  `name`的类型与索引类型返回值的类型不匹配
 }
 // 你可以将索引签名设置为只读，这样就防止了给索引赋值：
 interface ReadonlyStringArray {

@@ -69,9 +69,9 @@ interface NotOk {
 }
 
 interface NumberDictionary {
-  [idx: string]: number
-  length: number
-  // name: string
+  [idx: string]: number | string;
+  length: number;
+  name: string
 }
 
 

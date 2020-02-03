@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src/3-interface_0118.ts'),
+  entry: path.resolve(__dirname, 'src/3-interface2.ts'),
   module: {
     rules: [{
         test: /\.tsx?$/,
