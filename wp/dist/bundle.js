@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/3-interface2.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/5-functions.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/3-interface2.ts":
-/*!*****************************!*\
-  !*** ./src/3-interface2.ts ***!
-  \*****************************/
+/***/ "./src/5-functions.ts":
+/*!****************************!*\
+  !*** ./src/5-functions.ts ***!
+  \****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// console.log(Math.trunc(0.492))\r\n// console.log(Array.from([1, 2, 3], function (item) { return item * 6 }))\r\n// console.log(Array.from([1, 2, 3, 5], item => item * 6))  //  [6, 12, 18, 30]\r\n/* function test(...args) {\r\n  console.log(args) // [\"a\", \"b\", \"c\"]\r\n  for (let value of args) {\r\n    console.log(value)\r\n  }\r\n}\r\ntest('a', 'b', 'c')\r\nfor (let i of [{ a: 2, c: 4 }, { a: 2, c: 4 }]) {\r\n  console.log(i)\r\n} */\r\n/* for (let a in { a: 2, c: 3, d: 5 }) {\r\n  console.log(a) // key值\r\n} */\r\n// 类类型\r\n/* interface ClockInterface {\r\n  currentTime: Date\r\n  setTime(d: Date)\r\n}\r\ninterface ClockConstructor {\r\n  new(h: number, m: number)\r\n}\r\n// 定义一个类来实现这个接口   类的实例接口与构造器接口\r\nclass Clock implements ClockInterface {\r\n  currentTime: Date\r\n  constructor(h: number, m: number) { }\r\n  setTime(d: Date) {\r\n    console.log(d)\r\n    this.currentTime = d\r\n  }\r\n}\r\nnew Clock(1, 2).setTime(new Date()) */\r\n/* interface ClockInterface {\r\n  haha: number;\r\n  tick(): void;\r\n}\r\ninterface ClockConstructor {\r\n  new(hour: number, minute: number): ClockInterface\r\n  // new(hour: number, minute: number)\r\n}\r\nfunction createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {\r\n  return new ctor(hour, minute)\r\n}\r\nclass DigitalClock implements ClockInterface {\r\n  haha: number = 123\r\n  constructor(h: number, m: number) {\r\n    console.log(this.haha)\r\n  }\r\n  tick() {\r\n    console.log('beep beep67766')\r\n    console.log(this.haha)\r\n  }\r\n}\r\nclass AnalogClock implements ClockInterface {\r\n  haha: 8;\r\n  constructor(h: number, m: number) { }\r\n  tick() {\r\n    console.log('tick tock')\r\n  }\r\n}\r\nlet digital = createClock(DigitalClock, 12, 17)\r\ndigital.tick()\r\nconsole.log(digital.haha) */\r\n// 继承接口\r\n/* interface Shape {\r\n  color: string\r\n}\r\ninterface PenStroke {\r\n  penWidth: number\r\n}\r\ninterface Square extends Shape, PenStroke {\r\n  sideLength: number\r\n}\r\nlet square = {} as Square\r\nsquare.color = 'red'\r\nsquare.sideLength = 6\r\nsquare.penWidth = 5.0\r\nconsole.log(square) */\r\n// 混合类型\r\n/* interface Counter {\r\n  (start: number): string;\r\n  interval: number;\r\n  reset(): void;\r\n}\r\nfunction getCounter(): Counter {\r\n  let counter = (function (start: number) { }) as Counter;\r\n  counter.interval = 123;\r\n  counter.reset = function () {\r\n    console.log(99)\r\n  };\r\n  return counter;\r\n}\r\nlet c = getCounter();\r\nc(10);\r\nc.reset();\r\nc.interval = 5.0; */\r\n// 接口继承类   用到的不是很多\r\n\n\n//# sourceURL=webpack:///./src/3-interface2.ts?");
+eval("var z = 10;\r\nvar myAdd = function (x, y) {\r\n    return x + y + z; // 函数的类型只是由参数类型和返回值类型组成的。 函数中使用的捕获变量不会体现在类型里。 实际上，这些变量是函数的隐藏状态并不是组成 API 的一部分。\r\n};\r\nconsole.log(myAdd(1, 3));\r\n\n\n//# sourceURL=webpack:///./src/5-functions.ts?");
 
 /***/ })
 

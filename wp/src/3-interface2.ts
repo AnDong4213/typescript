@@ -103,6 +103,26 @@ c.reset();
 c.interval = 5.0; */
 
 // 接口继承类   用到的不是很多
+class Control {
+  private state: any
+}
+
+interface SelectableControl extends Control {
+  select(): void
+}
+
+class Button extends Control implements SelectableControl {
+  select() { }
+}
+
+class TextBox extends Control {
+  select() { }
+}
+
+// Error：“ImageC”类型缺少“state”属性。
+/* class ImageC implements SelectableControl {
+  select() { }
+} */
 
 
 
