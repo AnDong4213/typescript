@@ -75,9 +75,9 @@ interface NumberDictionary {
 }
 
 
-interface ReadonlyStringArray {
+/* interface ReadonlyStringArray {
   readonly [index: number]: string
 }
 let myArray2: ReadonlyStringArray = ['Alice', 'Bob', 'tom']
 // myArray2[2] = '999' // 类型“ReadonlyStringArray”中的索引签名仅允许读取。
-console.log(myArray2)
+console.log(myArray2) */

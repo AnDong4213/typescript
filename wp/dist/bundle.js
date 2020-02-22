@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/5-functions.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/6-generics.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/5-functions.ts":
-/*!****************************!*\
-  !*** ./src/5-functions.ts ***!
-  \****************************/
+/***/ "./src/6-generics.ts":
+/*!***************************!*\
+  !*** ./src/6-generics.ts ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("var z = 10;\r\nvar myAdd = function (x, y) {\r\n    return x + y + z; // 函数的类型只是由参数类型和返回值类型组成的。 函数中使用的捕获变量不会体现在类型里。 实际上，这些变量是函数的隐藏状态并不是组成 API 的一部分。\r\n};\r\nconsole.log(myAdd(1, 3));\r\n\n\n//# sourceURL=webpack:///./src/5-functions.ts?");
+eval("// 泛型基础示例\r\n/* function identity(arg: number): number {\r\n  return arg\r\n} */\r\n/* function identity(arg: any): any {\r\n  return arg\r\n} */\r\n// 需要一种方法使返回值的类型与传入参数的类型是相同的。使用了--类型变量，它是一种特殊的变量，只用于表示类型而不是值。\r\nfunction identity(arg) {\r\n    return arg;\r\n}\r\n// let output = identity<string>('myString2')   // 传入所有的参数，包含类型参数：\r\nvar output = identity(33); // 利用类型推论 -- 即编译器会根据传入的参数自动地帮助我们确定 T 的类型：\r\nconsole.log(output);\r\n// 使用泛型变量\r\nfunction loggingIdentity(arg) {\r\n    console.log(arg.length);\r\n    return arg;\r\n}\r\nconsole.log(loggingIdentity([1, '2', 3, { a: 2 }]));\r\n\n\n//# sourceURL=webpack:///./src/6-generics.ts?");
 
 /***/ })
 

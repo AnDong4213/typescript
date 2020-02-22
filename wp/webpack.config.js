@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src/5-functions.ts'),
+  entry: path.resolve(__dirname, 'src/6-generics.ts'),
   module: {
     rules: [{
         test: /\.tsx?$/,
