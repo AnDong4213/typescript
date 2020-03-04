@@ -29,11 +29,11 @@ let myIdentity2: { <T>(arg: T): T } = identity
 }
 let myIdentity3: GenericIdentityFn = identity */
 // 甚至可以把泛型参数当作整个接口的一个参数。 就能清楚的知道使用的具体是哪个泛型类型
-interface GenericIdentityFn<T> {
+interface GenericIdentityFn<T=any> {
   (arg: T): T
 }
 let myIdentity3: GenericIdentityFn<number> = identity
-console.log(myIdentity3(33447))
+console.log(myIdentity3(444444444555))
 
 
 // 泛型类
@@ -44,11 +44,22 @@ class GenericNumber<T> {
 }
 let myGenericNumber = new GenericNumber<number>()
 myGenericNumber.zeroValue = 9
-myGenericNumber.add = function (x, y) {
+myGenericNumber.add = function(x, y) {
   return x + y
 }
 console.log(myGenericNumber.add(9, 6))
 
+interface AxiosResponse<T = number> {
+  data: T
+  status: object
+}
+function createSquare(config: string): AxiosResponse {
+  return {
+    data: Number(config),
+    status: {}
+  }
+}
+console.log(createSquare('7'))
 
 // 泛型约束
 interface Lengthwise {

@@ -1,15 +1,18 @@
-import { isDate, isPlainObject } from './util'
 
-function encode(val: string): string {
-  return encodeURIComponent(val)
-    .replace(/%40/g, '@')
-    .replace(/%3A/gi, ':')
-    .replace(/%24/g, '$')
-    .replace(/%2C/gi, ',')
-    .replace(/%20/g, '+')
-    .replace(/%5B/gi, '[')
-    .replace(/%5D/gi, ']')
+const toString = Object.prototype.toString
+
+function isDate(val: any): val is Date {
+  return toString.call(val) === '[Object Date]'
 }
+
+function isObject(val: any): val is Object {
+  return val !== null && typeof val === 'object'
+}
+
+function isPlainObject(val: any): val is Object {
+  return toString.call(val) === '[object Object]'
+}
+
 
 export function buildURL(url: string, params?: any): string {
   if (!params) {
@@ -33,12 +36,13 @@ export function buildURL(url: string, params?: any): string {
     values.forEach(val => {
       if (isDate(val)) {
         val = val.toISOString()
-      } else if (isPlainObject(val)) {
+      } else if (isObject(val)) {
         val = JSON.stringify(val)
       }
-      parts.push(`${encode(key)}=${encode(val)}`)
+      parts.push(`${key}=${val}`)
     })
   })
+  console.log(parts)
 
   let serializedParams = parts.join('&')
   if (serializedParams) {
@@ -50,3 +54,7 @@ export function buildURL(url: string, params?: any): string {
   }
   return url
 }
+
+console.log(buildURL('/base/get?age=bar', {
+  foo: ['aa', 'bb']
+}))
