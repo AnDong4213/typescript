@@ -9,6 +9,7 @@ export default function dispatchRequest(config: AxiosRequestConfig): AxiosPromis
   return xhr(config).then(res => {
     return transformResponseData(res)
   })
+  // return xhr(config).then(res => transformResponseData(res))
 }
 
 function processConfig(config: AxiosRequestConfig): void {
