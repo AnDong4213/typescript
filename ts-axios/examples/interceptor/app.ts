@@ -39,7 +39,8 @@ axios({
   url: '/interceptor/get',
   method: 'get',
   headers: {
-    test: ''
+    test: '',
+    name: 'AND'
   }
 })
   .then((res) => {
