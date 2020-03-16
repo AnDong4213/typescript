@@ -8,6 +8,7 @@ interface ResolvePromise {
 export default class CancelToken {
   promise: Promise<Cancel>
   reason?: Cancel
+  // hahaNum: number
 
   constructor(executor: CancelExecutor) {
     let resolvePromise: ResolvePromise
@@ -15,6 +16,8 @@ export default class CancelToken {
     this.promise = new Promise<Cancel>(resolve => {
       resolvePromise = resolve
     })
+    // 先执行constructor里的代码
+    // this.hahaNum = 666999
 
     executor(message => {
       if (this.reason) {
@@ -27,6 +30,7 @@ export default class CancelToken {
 
   throwIfRequested() {
     if (this.reason) {
+      // console.log('throwIfCancellationRequested')
       throw this.reason
     }
   }
@@ -34,8 +38,10 @@ export default class CancelToken {
   static source(): CancelTokenSource {
     let cancel!: Canceler
     const token = new CancelToken(c => {
+      // console.log(c) // 把executor赋值给cancel
       cancel = c
     })
+    // console.log(cancel)
     return {
       cancel,
       token

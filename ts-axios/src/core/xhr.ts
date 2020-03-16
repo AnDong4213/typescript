@@ -1,10 +1,13 @@
 import { AxiosRequestConfig, AxiosPromise, AxiosResponse } from '../types'
 import { parseHeaders } from '../helpers/headers'
 import { createError } from '../helpers/error'
+import { isURLSameOrigin } from '../helpers/url'
+import { isFormDate } from '../helpers/util'
+import cookie from '../helpers/cookie'
 
 export default function xhr(config: AxiosRequestConfig): AxiosPromise {
   return new Promise((resolve, reject) => {
-    const { data = null, method = 'get', url, headers, responseType, timeout, cancelToken } = config
+    const { data = null, method, url, headers, responseType, timeout, cancelToken, withCredentials, xsrfCookieName, xsrfHeaderName, onDownloadProgress, onUploadProgress, auth } = config
     const request = new XMLHttpRequest()
 
     if (responseType) {
@@ -13,7 +16,10 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
     if (timeout) {
       request.timeout = timeout
     }
-    request.open(method.toUpperCase(), url!, true)
+    if (withCredentials) {
+      request.withCredentials = withCredentials
+    }
+    request.open(method!.toUpperCase(), url!, true)
 
     request.onreadystatechange = function () {
       if (request.readyState !== 4) {
@@ -42,6 +48,30 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
       reject(createError(`Timeout of ${timeout} ms exceeded`, config, 'ECONNABORTED', request))
     }
 
+    if (onDownloadProgress) {
+      request.onprogress = onDownloadProgress
+    }
+
+    if (onUploadProgress) {
+      request.upload.onprogress = onUploadProgress
+    }
+
+    if (isFormDate(data)) {
+      delete headers['Content-Type']
+    }
+
+    if ((withCredentials || isURLSameOrigin(url!)) && xsrfCookieName) {
+      const xsrfValue = cookie.read(xsrfCookieName)
+      if (xsrfValue && xsrfHeaderName) {
+        headers[xsrfHeaderName] = xsrfValue
+      }
+    }
+
+    // console.log(btoa)  // ƒ btoa() { [native code] }  // btoa编码  atob解码
+    if (auth) {
+      headers['Authorization'] = 'Basic ' + btoa(auth.username + ':' + auth.password)
+    }
+
     Object.keys(headers).forEach(name => {
       if (data === null && name.toLowerCase() === 'content-type') {
         delete headers[name]
@@ -50,10 +80,12 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
       }
     })
 
+    // console.log(cancelToken.hahaNum)
     if (cancelToken) {
       cancelToken.promise.then(reason => {
         request.abort()
         reject(reason)
+        // console.log(reason)
       })
     }
     request.send(data)
@@ -62,7 +94,8 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
 }
 
 function handleResponse(response: AxiosResponse, resolve: any, reject: any, config: any, request: any): void {
-  if (response.status >= 200 && response.status < 300) {
+  const { validateStatus } = config
+  if (!validateStatus || validateStatus(response.status)) {
     resolve(response)
   } else {
     reject(createError(`Request failed with status code ${response.status}`, config, null, request, response))
