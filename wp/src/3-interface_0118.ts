@@ -18,7 +18,7 @@ interface SquareConfig {
   width?: number,
   [propName: string]: any
 }
-function createSquare(config: SquareConfig): Square {
+function createSquare3(config: SquareConfig): Square {
   let newSquare = { color: 'white', area: 100 }
   if (config.color) {
     newSquare.color = config.color
@@ -29,9 +29,9 @@ function createSquare(config: SquareConfig): Square {
   return newSquare
 }
 // let obj = { color: 'red', width: 8, bb: 9 } // 就是squareOptions
-// let mySquare = createSquare(obj) // 不报错
-// let mySquare = createSquare({ color: 'red', width: 67, bb: 9 } as SquareConfig)  // 不报错
-let mySquare = createSquare({ color: 'red', width: 5, bb: 9 })
+// let mySquare = createSquare3(obj) // 不报错
+// let mySquare = createSquare3({ color: 'red', width: 67, bb: 9 } as SquareConfig)  // 不报错
+let mySquare = createSquare3({ color: 'red', width: 5, bb: 9 })
 console.log(mySquare)
 
 interface SearchFunc {
