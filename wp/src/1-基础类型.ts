@@ -23,11 +23,13 @@ console.log(new Child('TS').name()) */
 
 let isDone: boolean = true;
 
+// 十进制
 let decLiteral: number = 20
-let hexLiteral: number = 0x14
+
 let binaryLiteral: number = 0b10100
 let octalLiteral: number = 0o24
-console.log(octalLiteral) // 20
+let hexLiteral: number = 0x14
+console.log(hexLiteral) // 20
 
 let list: number[] = [1, 2, 3, 8];
 let list2: Array<number> = [1, 2, 9];
