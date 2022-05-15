@@ -6,7 +6,7 @@ function QQUsers(QQNo_, QQAge_, QQMark_) {
   this.QQMark = QQMark_; //QQ标签
   //引用对象类型=引用类型=对象类型=引用数据类型
   // 数组也是一种引用数据类型
-  // this.commonfriends = ["骑驴看海", "大漠上的英雄", "坚实的果子", "小草"]; //共同好友
+  this.commonfriends = ["骑驴看海", "大漠上的英雄", "坚实的果子", "小草"]; //共同好友
   // 方法也是一种引用数据类型
   this.show = function () {
     console.log(`QQ号:${this.QQNo},QQ龄:${this.QQAge},QQ标注:${this.QQMark}`);
@@ -15,6 +15,9 @@ function QQUsers(QQNo_, QQAge_, QQMark_) {
 }
 
 QQUsers.prototype.show = function () {
+  console.log(999);
+};
+QQUsers.prototype.getAge = function () {
   console.log(999);
 };
 
@@ -30,15 +33,16 @@ QQUsers.prototype.show = function () {
 const aa = new QQUsers("1543463", 21, "后继乏人");
 const bb = new QQUsers("164353", 3, "跟你讲开发");
 
-QQUsers.prototype = {
+/* QQUsers.prototype = {
   commonfriends: ["abc", "bcd", "骑驴看海"]
-};
+}; */
 
 /* console.log(QQUsers.prototype === aa.__proto__); // true
 console.log(aa.__proto__ === bb.__proto__); // true */
 
 // aa.__proto__.show();
 aa.show();
+console.log(aa);
 
 /* const aa = {};
 console.log(aa.prototype); // undefined */
