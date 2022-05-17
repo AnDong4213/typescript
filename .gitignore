@@ -6,6 +6,8 @@ bower_components/
 .npm-debug.log
 .parcel-cache
 coverage/
+dist/
+/dist
 package-lock.json
 #ignore .project created by Hbuilder
 .project
