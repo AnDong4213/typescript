@@ -15,7 +15,7 @@ class Order {
     phone_: string,
     orderDetailArray_: Array<OrderDetail>
   ) {
-    this.orderId = orderId_;
+    // this.orderId = orderId_;
     this.date = date_;
     this.custname = custname_;
     this.phone = phone_;
