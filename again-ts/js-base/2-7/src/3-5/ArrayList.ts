@@ -4,7 +4,10 @@
 
 // 方法重载
 class ArrayList {
-  constructor(public elements: Array<object>) {}
+  // TS构造器
+  constructor(public elements: Array<object>) {
+    return this; // 构造函数签名的返回类型必须可赋给类的实例类型
+  }
 
   get(index: number) {
     return this.elements[index];
