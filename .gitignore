@@ -5,6 +5,9 @@ bower_components/
 .DS_Store
 .npm-debug.log
 .parcel-cache
+.parcel-cache/
+parcel-cache
+/parcel-cache
 coverage/
 dist/
 /dist
