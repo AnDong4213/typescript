@@ -6,3 +6,4 @@ MyLocalStorage.getInstance();
 // my.setItem("age", 23);
 MyLocalStorage.addTotal();
 console.log(MyLocalStorage.getTotal());
+console.log(MyLocalStorage.prototype);

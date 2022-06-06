@@ -10,7 +10,7 @@ export default class MyLocalStorage {
   private static total: number = 0;
 
   private constructor() {
-    console.log("这是TS的单件设计模式的静态方法的构造器");
+    console.log("这是TS的单件设计模式的静态方法的构造器--");
   }
 
   // 提供一个外部访问的方法,
