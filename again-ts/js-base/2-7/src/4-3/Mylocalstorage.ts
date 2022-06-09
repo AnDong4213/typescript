@@ -45,3 +45,4 @@ export default class MyLocalStorage {
     return this.total;
   }
 }
+// console.log(MyLocalStorage.prototype.constructor === MyLocalStorage) // true
