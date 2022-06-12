@@ -5,6 +5,9 @@
 将步骤1新创建的对象作为this的上下文 ；
 如果该函数没有返回对象，则返回this。 */
 
+// 原型链继承的不足
+// ​ 局限性：不能通过子类构造函数向父类构造函数传递参数
+
 function Parent(name, age) {
     this.name = name
     this.age = age
