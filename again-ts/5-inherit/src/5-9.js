@@ -44,10 +44,10 @@ console.log(p);
 
 // 主要用于遍历对象的可枚举属性，包括自有属性、继承自原型的属性
 for (let oo in p) {
-  console.log("oo---", oo);
+  // console.log("oo---", oo);
   if (p.hasOwnProperty(oo)) {
     // Object.getOwnProperty主要用于返回对象的自有属性，包括可枚举和不可枚举的属性，不包括继承自原型的属性。
-    // console.log("pp---", oo);
+    console.log("pp---", oo);
   }
 }
 

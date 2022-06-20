@@ -46,7 +46,7 @@ const p = new ChinesePeople("小米note", "1", "124", "中国2");
 
 console.log(p);
 p.doEat();
-
+console.log('---------------------------------------------------------------')
 
 // Object.create() 方法创建一个新对象，使用现有的对象来提供新创建的对象的 __proto__。
 const person = {
@@ -63,6 +63,7 @@ const me = Object.create(person, {
 });
 console.log(me);
 console.log(me.__proto__); // {isHuman: false, printIntroduction: ƒ}
+console.log(me.isHuman); // false
 me.name = "华为";
 me.isHuman = true;
 me.printIntroduction();
