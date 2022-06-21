@@ -1,6 +1,6 @@
 // let extendStatics = require('./5-23-extendStatics.js')
 let extendStatics = require('./5-23-extendStatics-2.js')
-console.log(extendStatics)
+// console.log(extendStatics)
 
 function People (name, sex, phone) {
   this.name = name; // 实例属性
@@ -10,7 +10,7 @@ function People (name, sex, phone) {
 
 People.count = 202
 People.commonDescribe = function() {
-  console.log('玩看看')
+  console.log('陆基中段反导拦截技术2.0')
 }
 
 People.prototype.doEat = function () {
