@@ -54,6 +54,8 @@ function _extends(son, parent) {
 }
 
 ChinesePeople.prototype = _extends(ChinesePeople, People);
+console.log(ChinesePeople.prototype.constructor);
+console.log(People.prototype.constructor);
 const p = new ChinesePeople("小米note", "1", "124", "中国2");
 
 console.log(p);
