@@ -8,7 +8,7 @@ function People(name, sex, phone) {
   this.phone = phone;
 }
 
-People.count = 405;
+People.count = 404;
 People.commonDescribe = function () {
   console.log("哈哈");
 };
@@ -34,3 +34,16 @@ p.doEat();
 p.getCity();
 
 // Object.create() 方法创建一个新对象，使用现有的对象来提供新创建的对象的 __proto__。
+/* const o = Object.create(null)
+console.log(o) // {}
+console.log(o.__proto__)   // undefined */
+
+const aa = {a: 1, b: 2}
+function bb(age) {
+  this.age = age
+  return this
+}
+const cc = bb.call(aa, 24)  
+console.log(cc) // {a: 1, b: 2, age: 24}
+console.log(aa) // {a: 1, b: 2, age: 24}
+console.log(aa.age)
