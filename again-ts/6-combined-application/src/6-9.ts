@@ -13,14 +13,26 @@ console.log(aa instanceof StringUtil);
 
 function myInstanceof(a: any, b: any) {
   while (a) {
-    if (a.__proto__ === b.prototype) {
+    if (a === b.prototype) {
       return true;
-    } else {
-      a = a.__proto__;
     }
+    // a = a.__proto__;
+    a = Object.getPrototypeOf(a);
   }
   return false;
 }
+
+const instanceOf = function (A: any, B: any) {
+  let p = A;
+  while (p) {
+    if (p === B.prototype) {
+      return true;
+    }
+    // p = p.__proto__;
+    p = Object.getPrototypeOf(p);
+  }
+  return false;
+};
 console.log(myInstanceof(aa, StringUtil));
 
 export {};
