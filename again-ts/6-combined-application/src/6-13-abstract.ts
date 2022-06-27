@@ -1,13 +1,26 @@
-// 1.多态的定义:
-// 父类的对象变量可以接受任何一个子类的对象
-// 从而用这个父类的对象变量来调用子类中重写的方法而输出不同的结果.
+// 一个在任何位置都不能被实例化的类就是一个抽象类【abstract class 】
 
-class People {
+abstract class People {
   public name!: string;
-  public eat() {
+  constructor(public profession?: string) {
+    this.profession = "UI";
+  }
+  /* public eat() {
     console.log("People父类的eat");
+  } */
+  // 当抽象类把一个方法定义为抽象方法，那么会强制在所有子类中实现它
+  public abstract eat(): void; // 抽象方法，没有方法体，带有abstract关键字
+
+  static drink() {
+    console.log("静态-果汁");
+  }
+
+  drink() {
+    console.log("实例-果汁");
   }
 }
+
+// const p = new People(); // 无法创建抽象类的实例
 
 class AmericanPeople extends People {
   public phone!: string;
@@ -18,7 +31,7 @@ class AmericanPeople extends People {
 
 class ChinesePeople extends People {
   public eat() {
-    console.log("用筷子吃饭...");
+    console.log("用筷子吃饭哈...");
   }
 }
 
@@ -37,5 +50,9 @@ people = new ChinesePeople();
 people.eat();
 people = new TuzhuPeople();
 people.eat();
+console.log("----------------------------");
+TuzhuPeople.drink();
+people.drink();
+console.log(people.profession);
 
 export {};
