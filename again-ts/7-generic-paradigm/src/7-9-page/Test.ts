@@ -1,8 +1,8 @@
 import Pager from "./pager";
 import { FoodDao } from "./dao";
 
-let pager = new Pager(1);
+let pager = new Pager(3);
 let foodDao = new FoodDao();
 let allFoods = foodDao.findAllFoods();
 pager.dataList = allFoods;
-pager.showCurrentPageData();
+console.log(pager.showCurrentPageData())

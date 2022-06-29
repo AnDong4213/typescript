@@ -11,6 +11,18 @@ export default class Pager {
   }
 
   public showCurrentPageData() {
-    console.log(this.dataList);
+    this.firstRecordNoCurPage = this.pageSize * (this.pageCount - 1)
+    // 当前页的最后一条记录号
+    let lastRecordNoCurPage = this.firstRecordNoCurPage + this.pageSize - 1
+    //  当前页的所有记录
+
+    //let resultDataListCurpage = lastRecordNoCurPage >= this.dataList.size() - 1 ?
+    // 如果lastRecordNoCurPage计算是按照每一页3条记录计算出来的最后一页的最后一条记录，
+    // 如果最后一页小于3条记录, 就直接slice到this.dataList.size()就可以了
+    return lastRecordNoCurPage >= this.dataList.size() - 1 ?
+      this.dataList.element
+        .slice(this.firstRecordNoCurPage, this.dataList.size())
+      : this.dataList.element
+        .slice(this.firstRecordNoCurPage, lastRecordNoCurPage + 1)
   }
 }
