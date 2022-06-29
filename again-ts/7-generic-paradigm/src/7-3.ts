@@ -6,6 +6,8 @@
 特点一：定义时不明确使用时必须明确成某种具体数据类型的数据类型。【泛型的宽泛】
 特点二：编译期间进行数据类型安全检查的数据类型。【泛型的严谨】 */
 
+// 泛型的any化
+// 泛型的默认值问题
 class ArrayList<T> {
   public element: Array<T>;
   constructor() {
@@ -37,8 +39,10 @@ class ArrayList<T> {
 
   remove(value: number): number;
   remove(value: object): object;
+  // remove(value: T): T; // 重载貌似不能这样写
   //remove(value: number | object): number | object {
   remove(value: any): any {
+    this.index--;
     this.element = this.element.filter((ele, index) => {
       //如果是根据数字【元素索引】去删除元素，remove方法返回的是一个数字
       if (typeof value === "number") {
@@ -59,10 +63,14 @@ let stuThree = { stuName: "liuQi", age: 31 };
 let arrayList = new ArrayList<string>();
 arrayList.add("99");
 
-console.log(typeof stuOne);
+console.log(typeof stuOne); // js的typeof
 let arrayList2 = new ArrayList<typeof stuOne>();
 arrayList2.add(stuOne);
+arrayList2.add(stuTwo);
+arrayList2.add(stuThree);
 
-console.log(arrayList);
+arrayList2.remove(2);
+
+console.log(arrayList2);
 
 export {};
