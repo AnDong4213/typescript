@@ -49,10 +49,10 @@ function isChinese<T>(arr: Array<T>): boolean {
   const pattern = /[\u4e00-\u9fa5]+/g;
   return arr.some((str) => pattern.test(str as any));
 }
-console.log(isChinese(["kkk", "kkh看"]));
+console.log(isChinese(["kkk", "k了kh"]));
 
 // 中文+英文、数字数组排序混合方法
-function sort<T>(arr: Array<T>): T[] {
+/* function sort<T>(arr: Array<T>): T[] {
   if (isChinese(arr)) {
     //如果是中文数组
     return sortChinese(arr);
@@ -62,4 +62,25 @@ function sort<T>(arr: Array<T>): T[] {
   });
   //英文、数字数组排序
   return quickSort(newArr as any);
+} */
+
+function sort(data: string, count?: number): string; //[可有可无]
+function sort<T>(data: T, count?: number): T; //分工明确
+function sort(data: any, count: number = 5): any {
+  if (typeof data === "string") {
+    //如果是字符串
+    return strSelfSort(data); // 按照字符串自排序
+  }
+  if (data instanceof Array) {
+    //如果data是数组
+    if (isChinese(data)) {
+      //如果是中文数组
+      return sortChinese(data);
+    }
+    let newArr = data.map((item) => {
+      return typeof item === "string" ? strSelfSort(item) : item;
+    });
+    //英文、数字数组排序
+    return quickSort(newArr as any);
+  }
 }
