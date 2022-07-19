@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld :msg="strRef" />
-    <p ref="km" style="color: #42b983">开门</p>
+    <p ref="km" style="color: #f0f">北京</p>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default defineComponent({
     console.log(strRef.value);
     console.log(objRef.value.sex);
     console.log(isRef(strRef));
-    const km = ref();
+    const km = ref(null);
     onMounted(() => {
       console.log(km.value);
     });

@@ -33,4 +33,14 @@ console.log("===", ShopCartService.name);
 console.log("---", Reflect);
 
 const as2: commonGp2<ShopCartService> = ShopCartService;
-console.log(new as2("TV", 88).productName);
+console.log(new as2("TV2", 88).productName);
+
+// type MyClassDecorator = <T>(targetClass: new (...args: any[]) => T) => any;
+type MyClassDecorator = <T>(targetClass: { new (...args: any[]): T }) => any;
+
+/* function Controller(rootPath: string): MyClassDecorator {
+  return function <T>(targetClass: { new (...args: any[]): T }) {};
+} */
+function Controller(rootPath: string): MyClassDecorator {
+  return function (targetClass) {};
+}
