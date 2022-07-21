@@ -1,4 +1,4 @@
-# vue-ts
+# v-pinia
 
 ## Project setup
 ```
