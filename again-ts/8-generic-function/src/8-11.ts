@@ -44,3 +44,19 @@ type MyClassDecorator = <T>(targetClass: { new (...args: any[]): T }) => any;
 function Controller(rootPath: string): MyClassDecorator {
   return function (targetClass) {};
 }
+
+// 再研究
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void  ? I  : never;
+function combine<T extends object[]>(...unionObj: T):UnionToIntersection<T[number]>
+function combine<T extends object[]>(...unionObj: T) {
+  return unionObj.reduce((acc, obj) => ({
+    ...acc,
+    ...obj
+  }), {});
+}
+
+const crossResult2 = combine({ count: 2, price: 4, name: { ownName: "kate" } },
+  { price: 2 }, { address: "beijing" })
+console.log(crossResult2.address)//success 
+console.log(crossResult2.count)//success
+console.log(crossResult2.name)//success
