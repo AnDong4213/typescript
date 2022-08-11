@@ -19,6 +19,10 @@ console.log(c1)
 
 // 通用写法
 const MyChinesePeople2: new (...args: any[]) => any = ChinesePeople
+const c2 = new MyChinesePeople2('安安2','男2','1232','汉2');
+console.log(c2)
 
 type Constructor<T> = new (...args: any[]) => T;
 const MyChinesePeople3: Constructor<ChinesePeople> = ChinesePeople
+const c3 = new MyChinesePeople2('安安23','男23','12323','汉23');
+console.log(c3 instanceof ChinesePeople)
