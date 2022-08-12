@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h3>Installed CLI Plugins ---- {{ counter.count }}</h3>
+    <h4>{{ i18n.greetings.hello }}</h4>
   </div>
 </template>
 
@@ -19,6 +20,7 @@ export default {
   props: {
     msg: String,
   },
+  inject: ['i18n']
 };
 </script>
 
