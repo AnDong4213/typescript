@@ -20,7 +20,7 @@ let constructorParameters: ConstructorParametersType<typeof TestClass> = [
   2
 ];
 console.log(constructorParameters);
-console.log('------------------------------------------------');
+console.log("------------------------------------------------");
 
 /* function createInstance<T>(constructor: Constructor<T>, ...args: any[]) {
   // return new constructor(args[0], args[1])
@@ -28,11 +28,14 @@ console.log('------------------------------------------------');
 }
 createInstance<TestClass>(TestClass, "wangwu", 115,).eat(); */
 
-function createInstance<T, CP extends new (...args: any[]) => any>(constructor: Constructor<T>, ...args: ConstructorParametersType<CP>) {
-  return new constructor(...args)
+function createInstance<T, CP extends new (...args: any[]) => any>(
+  constructor: Constructor<T>,
+  ...args: ConstructorParametersType<CP>
+) {
+  return new constructor(...args);
 }
 createInstance<TestClass, typeof TestClass>(TestClass, "wangwu", 151930).eat();
 
 // type LeftTrim<T extends string> = T extends ` ${infer P}` ? LeftTrim<P> : T
 
-export {}
+export {};
