@@ -8,8 +8,13 @@ const install = (app, options) => {
   app.provide('i18n', options)
 }
 
-/* export default {
-  install,
-} */
+const other = () => {
+  console.log(99)
+}
 
-export { install as default }
+export default {
+  install,
+  other,
+}
+
+// export { install as default }
