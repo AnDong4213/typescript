@@ -20,6 +20,11 @@ const routes = [
     name: 'plugin',
     component: () => import(/* webpackChunkName: "plugin" */ '../components/plugin.vue'),
   },
+  {
+    path: '/draggable',
+    name: 'draggable',
+    component: () => import(/* webpackChunkName: "plugin" */ '../views/Draggable.vue'),
+  },
 ]
 
 const router = createRouter({
