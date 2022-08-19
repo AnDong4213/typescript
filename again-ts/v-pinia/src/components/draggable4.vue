@@ -6,7 +6,7 @@
                  :list="list1"
                  :group="{ name: 'people', pull: 'clone', put: false }"
                  :clone="cloneDog"
-                 @change="log"
+                 @change="log1"
                  item-key="id">
         <template #item="{ element }">
           <div class="list-group-item">
@@ -21,7 +21,7 @@
       <draggable class="dragArea list-group"
                  :list="list2"
                  group="people"
-                 @change="log"
+                 @change="log2"
                  item-key="id">
         <template #item="{ element }">
           <div class="list-group-item">
@@ -68,13 +68,17 @@ export default {
     };
   },
   methods: {
-    log: function (evt) {
+    log1: function (evt) {
       window.console.log(evt);
     },
-    cloneDog({ id }) {
+    log2: function (evt) {
+      window.console.log(evt);
+    },
+    cloneDog(pa) {
+      console.log('pa', pa)
       return {
         id: idGlobal++,
-        name: `cat-- ${id}`
+        name: `cat-- ${pa.id}`
       };
     }
   }

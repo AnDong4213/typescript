@@ -91,6 +91,7 @@ export default {
 
       console.log('e', e)
       console.log('originalEvent', originalEvent)
+      return true
     }
   }
 };

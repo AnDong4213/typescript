@@ -2,7 +2,15 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h3>Installed CLI Plugins ---- {{ counter.count }}</h3>
+    {{ $data }}--{{ $props }}
     <h4>{{ i18n.greetings.hello }}</h4>
+    <!-- <slot name="h2"></slot>
+    <slot></slot> -->
+
+    <template v-for="(idx, slotName) in $slots">
+      <slot :name="slotName"
+            v-bind="slotObj"></slot>
+    </template>
   </div>
 </template>
 
@@ -20,7 +28,24 @@ export default {
   props: {
     msg: String,
   },
-  inject: ['i18n']
+  data() {
+    return {
+      age: 9,
+      slotObj: {
+        age: 3,
+        sex: 'female'
+      }
+    }
+  },
+  inject: ['i18n'],
+  mounted() {
+    /* console.log(this.$el)
+    console.log(this.$options)
+    console.log(this.$parent)
+    console.log(this.$refs)
+    console.log('$attrs', this.$attrs) */
+    console.log(this.$slots)
+  }
 };
 </script>
 
