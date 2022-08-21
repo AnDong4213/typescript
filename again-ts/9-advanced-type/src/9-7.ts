@@ -16,4 +16,8 @@ type threeResultType = oneType<typeof strName>
 const as: threeResultType = strName
 console.log(as)
 
+type resultGoodsType  = Record<string, Customer>
+const objarray: resultGoodsType = {a: { custname: "wangwu", age: 23}}
+console.log(objarray)
+
 export {};
