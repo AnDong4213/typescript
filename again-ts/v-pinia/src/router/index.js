@@ -23,7 +23,17 @@ const routes = [
   {
     path: '/draggable',
     name: 'draggable',
-    component: () => import(/* webpackChunkName: "plugin" */ '../views/Draggable.vue'),
+    component: () => import(/* webpackChunkName: "draggable" */ '../views/Draggable.vue'),
+  },
+  {
+    path: '/compf',
+    name: 'compf',
+    component: () => import(/* webpackChunkName: "CombFunction" */ '../views/CombinationFunction.vue'),
+  },
+  {
+    path: '/directive',
+    name: 'directive',
+    component: () => import(/* webpackChunkName: "directives" */ '../views/Directives.vue'),
   },
 ]
 

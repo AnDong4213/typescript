@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <HelloWorld msg="Welcome to Vue.js App"
-                v-slot="slotProps">
+                v-slot="slotProps"
+                class="hahaha">
       <h3>哈哈---{{ slotProps }}</h3>
     </HelloWorld>
 

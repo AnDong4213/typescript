@@ -3,7 +3,9 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/plugin">Plugins</router-link> |
-    <router-link to="/draggable">Draggable</router-link>
+    <router-link to="/draggable">Draggable</router-link> |
+    <router-link to="/compf">CombinationFunction</router-link> |
+    <router-link to="/directive">Directives</router-link>
   </nav>
   <router-view />
 </template>
