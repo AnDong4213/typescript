@@ -40,6 +40,7 @@ module.exports = {
     'vue/no-arrow-functions-in-watch': 'off',
     'vue/no-template-key': 'off',
     'vue/no-v-html': 'off',
+    'vue/no-unused-vars': 'warn',
     'vue/comment-directive': 'off',
     'vue/no-parsing-error': 'off',
     'vue/no-deprecated-v-on-native-modifier': 'off',

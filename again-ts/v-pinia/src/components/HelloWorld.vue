@@ -44,7 +44,8 @@ export default {
     console.log(this.$parent)
     console.log(this.$refs)
     console.log('$attrs', this.$attrs) */
-    console.log(this.$slots)
+    // console.log(this.$slots)
+    console.log(this.$root.$)
   }
 };
 </script>

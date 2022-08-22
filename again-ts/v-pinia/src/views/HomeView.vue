@@ -5,12 +5,23 @@
       <h3>哈哈---{{ slotProps }}</h3>
     </HelloWorld>
 
-    <HelloWorld msg="Welcome to Vue.js App-2">
+    <hello-world msg="Welcome to Vue.js App-2">
       <!-- <template #[h2]="h2Props"> -->
       <template v-slot:[h2]="h2Props">
         <h2>{{ h2Props }}</h2>
       </template>
-    </HelloWorld>
+    </hello-world>
+
+    <div class="666">
+      <div v-for="(editorName, propName) in COMMON_PROPERTIES"
+           :key="propName">
+        <span>{{ editorName }}--{{ propName }}</span>
+      </div>
+      <div v-for="(item, index) in COMMON_PROPERTIES2"
+           :key="item.type">
+        <span>{{ item.type }}--{{ index }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,11 +37,28 @@ export default {
   data() {
     return {
       ha: '我是slot',
-      h2: 'h2'
+      h2: 'h2',
+      COMMON_PROPERTIES: {
+        name: 'name-editor',
+        label: 'label-editor',
+        labelAlign: 'labelAlign-editor',
+        type: 'type-editor',
+        defaultValue: 'defaultValue-editor',
+        placeholder: 'placeholder-editor',
+        startPlaceholder: 'startPlaceholder-editor',
+        endPlaceholder: 'endPlaceholder-editor',
+        columnWidth: 'columnWidth-editor',
+      },
+      COMMON_PROPERTIES2: [
+        { type: 1 },
+        { type: 2 }
+      ]
     }
   },
   mounted() {
-    // console.log(this.$slots)
+    // console.log(this.$options)
+    console.log(this.$options.components['HelloWorld'])
+    console.log(this.$options.components['hello-world'])
   }
 };
 </script>
