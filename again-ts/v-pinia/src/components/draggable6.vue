@@ -1,34 +1,52 @@
 <template>
   <div class="row">
-    <div class="col-2">
+    <!-- <div class="col-2">
       <button class="btn btn-secondary button"
               @click="sort">
         To original order
       </button>
     </div>
 
+    <div class="col-2">
+      <button class="btn btn-secondary button"
+              @click="sort">
+        To original order
+      </button>
+    </div> -->
+
     <div class="col-6">
       <h3>Transition</h3>
       <draggable class="list-group"
-                 item-key="order"
-                 tag="transition-group"
-                 :component-data="{ tag: 'ul', name: 'flip-list', type: 'transition' }"
+                 :component-data="{
+                   tag: 'transition-group',
+                   name: !drag ? 'flip-list' : null
+                 }"
                  v-model="list"
                  v-bind="dragOptions"
-                 @start="isDragging = true"
-                 @end="isDragging = false">
+                 @start="drag = true"
+                 @end="drag = false"
+                 item-key="order">
         <template #item="{ element }">
           <li class="list-group-item">
-            <i :class="
-              element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'
-            "
-               @click="element.fixed = !element.fixed"
-               aria-hidden="true"></i>
+            <i :class="element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'"
+               @click="element.fixed = !element.fixed"></i>
             {{ element.name }}
           </li>
         </template>
       </draggable>
     </div>
+
+    <!-- <draggable tag="el-collapse"
+               :list="list"
+               :component-data="getComponentData()"
+               item-key="name">
+      <template #item="{ element }">
+        <el-collapse-item :title="element.name"
+                          :name="element.name">
+          <div>{{ element.name }}</div>
+        </el-collapse-item>
+      </template>
+    </draggable> -->
 
     <rawDisplayer class="col-3"
                   :value="list"
@@ -49,11 +67,10 @@ const message = [
   "on",
   "Sortablejs"
 ];
-let order = message.length;
 export default {
-  name: "transition-example",
-  display: "Transition",
-  order: 6,
+  name: "transition-example-2",
+  display: "Transitions",
+  order: 7,
   components: {
     draggable
   },
@@ -61,18 +78,33 @@ export default {
     return {
       list: message.map((name, index) => {
         return { name, order: index + 1 };
-      })
+      }),
+      drag: false
     };
   },
   methods: {
     sort() {
       this.list = this.list.sort((a, b) => a.order - b.order);
+    },
+    handleChange() {
+      console.log('changed');
+    },
+    inputChanged(value) {
+      this.activeNames = value;
+    },
+    getComponentData() {
+      return {
+        onChange: this.handleChange,
+        onInput: this.inputChanged,
+        wrap: true,
+        value: this.activeNames
+      };
     }
   },
   computed: {
     dragOptions() {
       return {
-        animation: 0,
+        animation: 200,
         group: "description",
         disabled: false,
         ghostClass: "ghost"
