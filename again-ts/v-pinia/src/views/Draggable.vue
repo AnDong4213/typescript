@@ -6,7 +6,7 @@
 
 <script>
 // @ is an alias to /src
-import Draggable1 from "@/components/draggable6.vue";
+import Draggable1 from "@/components/draggable8.vue";
 
 export default {
   name: "Draggable",
