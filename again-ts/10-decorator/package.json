@@ -1,0 +1,19 @@
+{
+  "name": "10-decorator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:build": "tsc -w",
+    "dev:start":"nodemon --watch dist/teaching js --exec  node ./dist/teaching/1ClassDecorator.js",
+    "start":  "concurrently npm:dev:*",
+    "tsc":"tsc src/teaching/1ClassDecorator.ts  --target ES5 -w --experimentalDecorators"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.20"
+  }
+}
