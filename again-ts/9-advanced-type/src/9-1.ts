@@ -25,17 +25,23 @@ type inferResultType = inferType<custFuncType>; // type inferResultType = Custom
 type inferType<T> = T extends (params: infer P, str: string) => any ? P : T;
 type inferResultType = inferType<custFuncType>; // type inferResultType = Customer */
 
-type FirstIfString<T> = T extends [infer S, ...unknown[]] ? (S extends string ? S : null) : undefined
-type A = FirstIfString<[string, number, number]>
-type B = FirstIfString<['hello', number, number]>
-type C = FirstIfString<['hello' | 'world', boolean]>
-const CC: C = 'hello'
+type FirstIfString<T> = T extends [infer S, ...unknown[]]
+  ? S extends string
+    ? S
+    : null
+  : undefined;
+type A = FirstIfString<[string, number, number]>;
+type B = FirstIfString<["hello", number, number]>;
+type C = FirstIfString<["hello" | "world", boolean]>;
+const CC: C = "hello";
 
-type D = FirstIfString<[boolean, number, string]>
-type E = FirstIfString<[]>
+type D = FirstIfString<[boolean, number, string]>;
+type E = FirstIfString<[]>;
 
-console.log(CC)
+console.log(CC);
 
 // 第二种写法
-type FirstIfString2<T> = T extends [infer S extends string, ...unknown[]] ? S : never
-type C2 = FirstIfString<['hello' | 'world', boolean]>
+type FirstIfString2<T> = T extends [infer S extends string, ...unknown[]]
+  ? S
+  : never;
+type C2 = FirstIfString<["hello" | "world", boolean]>;

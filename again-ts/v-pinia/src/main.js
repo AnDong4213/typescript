@@ -18,7 +18,7 @@ const app = createApp(App)
 app.provide('Message', 'Hello-Provide')
 app.use(i18nPlugin, {
   greetings: {
-    hello: '我是插件哈!',
+    hello: '我是插件你共--!',
   },
 })
 

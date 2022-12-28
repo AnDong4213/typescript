@@ -12,9 +12,11 @@ const other = () => {
   console.log(99)
 }
 
-export default {
+/* export default {
   install,
   other,
-}
+} */
+
+export default install
 
 // export { install as default }
