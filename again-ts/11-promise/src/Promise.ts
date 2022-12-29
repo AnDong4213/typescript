@@ -7,7 +7,7 @@ export default class Promise<T = any> {
   public reject_fail_value: any;
   public status!: string;
 
-  // 保存成功状态要执行的函数 订阅函数一般放在数组里
+  // 保存成功状态要执行的函数 订阅模式一般定义一个数组，数组里面保存函数
   public onResolveCallbacks: (() => void)[] = [];
   // 保存失败状态要执行的函数
   public onRejectCallbacks: (() => void)[] = [];
@@ -19,6 +19,7 @@ export default class Promise<T = any> {
         this.status = "success";
         this.resolve_success_value = value;
         console.log("resolve函数的结果:", value);
+        this.onResolveCallbacks.forEach((callback) => callback());
       }
     };
 
@@ -56,8 +57,17 @@ export default class Promise<T = any> {
       }
 
       if (this.status === "pending") {
+        console.log("异步的then---");
         this.onResolveCallbacks.push(() => {
           result = resolveInThen(this.resolve_success_value);
+          console.log("订阅函数resolve执行---", result);
+          resolve(result);
+        });
+
+        this.onRejectCallbacks.push(() => {
+          result = rejectinThen(this.reject_fail_value);
+          console.log("订阅函数reject执行---", result);
+          reject(result);
         });
       }
     });

@@ -1,13 +1,13 @@
 import Promise from "./Promise";
 
 let promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
+  resolve("成功了...");
+  /* setTimeout(() => {
     resolve("成功了...");
-  });
-  // reject("失败了...");
+  }); */
 });
 
-promise.then(
+/* promise.then(
   (successinfo) => {
     console.log("successinfo-1:", successinfo);
     return "OK-1";
@@ -16,7 +16,7 @@ promise.then(
     console.log("errorinfo-1:", errorinfo);
     return "fail-1";
   }
-);
+); */
 
 /* promise
   .then(
