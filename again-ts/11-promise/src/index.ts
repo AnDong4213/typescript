@@ -1,10 +1,10 @@
 import Promise from "./Promise";
 
-let promise = new Promise((resolve, reject) => {
-  resolve("成功了...");
-  /* setTimeout(() => {
+const promise = new Promise((resolve, reject) => {
+  // resolve("成功了...");
+  setTimeout(() => {
     resolve("成功了...");
-  }); */
+  });
 });
 
 /* promise.then(
@@ -18,7 +18,7 @@ let promise = new Promise((resolve, reject) => {
   }
 ); */
 
-/* promise
+promise
   .then(
     (successinfo) => {
       console.log("successinfo-1:", successinfo);
@@ -46,6 +46,6 @@ let promise = new Promise((resolve, reject) => {
     (errorinfo) => {
       console.log("errorinfo:-3", errorinfo);
     }
-  ); */
+  );
 
 console.log("end-----");
