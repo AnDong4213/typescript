@@ -30,6 +30,7 @@ export default class Promise<T = any> {
         this.status = "fail";
         this.reject_fail_value = reason;
         console.log("reject函数的结果:", reason);
+        this.onRejectCallbacks.forEach((callback) => callback());
       }
     };
 
@@ -65,9 +66,17 @@ export default class Promise<T = any> {
           result = resolveInThen(this.resolve_success_value);
           if (isPromise(result)) {
             console.log("------------------", result);
-            setTimeout(() => {
+            /* setTimeout(() => {
               resolve(result.resolve_success_value);
-            }, 5);
+            }, 5); */
+            result.then(
+              (resolveSuccess) => {
+                resolve(resolveSuccess);
+              },
+              (rejectSuccess) => {
+                reject(rejectSuccess);
+              }
+            );
           } else {
             console.log("订阅函数resolve执行---", result);
             resolve(result);

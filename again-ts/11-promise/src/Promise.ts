@@ -1,6 +1,6 @@
 import { ResolveType, FailType, ExecutorType } from "./actiontype";
 
-export default class Promise<T = any> {
+export default class myPromise<T = any> {
   public resolve!: ResolveType;
   public reject!: FailType;
   public resolve_success_value: any;
@@ -30,6 +30,7 @@ export default class Promise<T = any> {
     };
 
     try {
+      // console.log("执行次数---");
       executor(this.resolve, this.reject);
     } catch (err: any) {
       this.status = "pending";
@@ -40,7 +41,7 @@ export default class Promise<T = any> {
 
   then(resolveInThen: ResolveType, rejectinThen: FailType) {
     return new Promise((resolve, reject) => {
-      let result;
+      let result: any;
       if (this.status === "success") {
         result = resolveInThen(this.resolve_success_value);
         resolve(result);
@@ -52,9 +53,32 @@ export default class Promise<T = any> {
       }
 
       if (this.status === "pending") {
-        this.onResolveCallbacks.push(() => {
+        /* this.onResolveCallbacks.push(() => {
           result = resolveInThen(this.resolve_success_value);
-          resolve(result);
+          if (isPromise(result)) {
+            // setTimeout(() => {
+            //   resolve(result.resolve_success_value);
+            // }, 5);
+            result.then(
+              (resolveSuccess) => {
+                resolve(resolveSuccess);
+              },
+              (rejectSuccess) => {
+                reject(rejectSuccess);
+              }
+            );
+          } else {
+            resolve(result);
+          }
+        }); */
+
+        this.onResolveCallbacks.push(async () => {
+          result = await resolveInThen(this.resolve_success_value);
+          if (isPromise(result)) {
+            resolve(result.resolve_success_value);
+          } else {
+            resolve(result);
+          }
         });
 
         this.onRejectCallbacks.push(() => {
@@ -66,7 +90,7 @@ export default class Promise<T = any> {
   }
 }
 
-function isPromise(val: any): val is Promise {
+function isPromise(val: any): val is myPromise {
   return isObject(val) && isFunction(val.then);
 }
 

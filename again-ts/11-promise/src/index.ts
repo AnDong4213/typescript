@@ -1,4 +1,4 @@
-import Promise from "./Promise-2";
+import Promise from "./Promise";
 
 const promise = new Promise((resolve, reject) => {
   // resolve("成功了...");
@@ -52,10 +52,12 @@ promise
   .then(
     (successinfo) => {
       console.log("successinfo-1:", successinfo);
-      return "OK-1";
-      /* return new Promise((resolve, reject) => {
-        resolve("第二个异步操作。。。。");
-      }); */
+      // return "OK-1";
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("第二个异步操作。。。。");
+        }, 5);
+      });
     },
     (errorinfo) => {
       console.log("errorinfo-1:", errorinfo);
