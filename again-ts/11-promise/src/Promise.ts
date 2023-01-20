@@ -26,6 +26,7 @@ export default class myPromise<T = any> {
       if (this.status === "pending") {
         this.status = "fail";
         this.reject_fail_value = reason;
+        this.onRejectCallbacks.forEach((callback) => callback());
       }
     };
 
@@ -81,10 +82,48 @@ export default class myPromise<T = any> {
           }
         });
 
-        this.onRejectCallbacks.push(() => {
-          result = rejectinThen(this.reject_fail_value);
-          reject(result);
+        this.onRejectCallbacks.push(async () => {
+          result = await rejectinThen(this.reject_fail_value);
+          if (isPromise(result)) {
+            reject(result.reject_fail_value);
+          } else {
+            reject(result);
+          }
         });
+      }
+    });
+  }
+
+  catch(rejectinThen: FailType) {
+    return new Promise((resolve, reject) => {
+      let result: any;
+      result = rejectinThen(this.reject_fail_value);
+      reject(result);
+    });
+  }
+
+  static all(promises: myPromise[]): myPromise {
+    return new myPromise((resolve, reject) => {
+      let executorIndex = 0;
+      let allPrmiseResolveSucssValue: any[] = [];
+      promises.forEach((promise, index) => {
+        promise.then(
+          (resolveSuccess) => {
+            ProcessData(resolveSuccess, index);
+          },
+          (rejectFail) => {
+            reject(rejectFail);
+            return;
+          }
+        );
+      });
+
+      function ProcessData(resolveSuccess: any, index: number) {
+        allPrmiseResolveSucssValue[index] = resolveSuccess;
+        executorIndex++;
+        if (executorIndex === promises.length) {
+          resolve(allPrmiseResolveSucssValue);
+        }
       }
     });
   }

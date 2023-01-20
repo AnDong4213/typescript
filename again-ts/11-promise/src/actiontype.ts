@@ -1,4 +1,4 @@
-type ResolveType<T = any> = (resolve_success_value: T) => any;
+type ResolveType<T = any> = (resolve_success_value: T) => any | null;
 
 type FailType<T = any> = (reject_fail_value: any) => any;
 
