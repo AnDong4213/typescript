@@ -3,7 +3,7 @@ function FirstClassDecorator(targetClass: any) {
   /* const a = new targetClass();
   a.buy();
   console.log("targetClass--", targetClass.prototype);
-  console.log("targetClass--", targetClass.prototype.constructor.name);
+  console.log("targetClass--", targetClass.prototype.constructor.name); */
   Object.keys(targetClass.prototype).forEach((methodname) => {
     console.log("方法", methodname);
     let dataprop = Object.getOwnPropertyDescriptor(
@@ -11,12 +11,16 @@ function FirstClassDecorator(targetClass: any) {
       methodname
     );
     console.log("方法数据属性:", dataprop);
-  }); */
+  });
 
   console.log("targetClass.name--", targetClass.name);
 }
+function SecondClassDecorator(targetClass: any) {
+  console.log("SecondClassDecorator.name--", targetClass.name);
+}
 
 @FirstClassDecorator
+@SecondClassDecorator
 class CustomerService {
   name: string = "测试";
   constructor() {}

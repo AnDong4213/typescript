@@ -2,13 +2,13 @@
 function FirstClassDecorator(classinfo: string) {
   console.log("classinfo----", classinfo);
   return function (targetClass: any) {
-    const a = new targetClass();
-    a.buy();
+    /* const a = new targetClass();
+    a.buy(); */
     console.log("targetClass.name--", targetClass.name);
   };
 }
 
-@FirstClassDecorator("装饰CustomerService类的信息--")
+@FirstClassDecorator("装饰CustomerService类的信息")
 class CustomerService {
   name: string = "测试";
   constructor() {}
