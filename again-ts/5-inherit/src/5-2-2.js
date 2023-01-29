@@ -23,12 +23,14 @@ Son.prototype = Parent.prototype; // 如果Son.prototype 指向Parent.prototype
 Son.prototype.constructor = Son;
 console.log("Son.prototype.constructor", Parent.prototype.constructor === Son); // 如果Son.prototype 指向Parent.prototype ，Parent.prototype.constructor指向了Son，这是不对的
 
+console.log("-----------------------====------");
+
 const son2 = new Son("游戏", "女");
 console.log("son2", son2);
 console.log("son2", son2.age);
 console.log("son2", son2.friends);
-console.log(Son.prototype === son2.__proto__); // true
-console.log(Son.prototype.__proto__ === Parent.prototype); // true
+console.log(son2.__proto__ === Son.prototype); // true
+console.log(Son.prototype.__proto__ === Parent.prototype); // false
 console.log(Object.prototype);
 
 let a = { aa: 8 };

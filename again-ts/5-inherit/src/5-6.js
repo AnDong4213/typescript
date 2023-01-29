@@ -12,7 +12,8 @@ People.prototype.doEat = function () {
 };
 
 function ChinesePeople(name, sex, phone, national) {
-  People.call(this, name, sex, phone);
+  // People.call(this, name, sex, phone);
+  People.apply(this, [name, sex, phone]);
   this.national = national;
 }
 console.log(new ChinesePeople("小米", "1", "124", "中国"));

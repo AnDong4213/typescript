@@ -15,6 +15,9 @@ const son1 = new Son("篮球", "男");
 console.log("son1", son1);
 
 console.log("Son.prototype", Son.prototype);
+
+console.log("-----------------------====------");
+
 Son.prototype = new Parent("张三", 25);
 console.log("Son.prototype.constructor", Son.prototype.constructor === Parent); // false
 console.log("Son.prototype.constructor", Son.prototype.constructor === Son); // true

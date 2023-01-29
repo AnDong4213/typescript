@@ -21,7 +21,7 @@ function LoggerInfoDecorator<T extends { new (...args: any): any }>(
   class LoggerSonClass extends targetClass {
     constructor(...args: any) {
       super(...args);
-      console.log("日志信息...targetClass:");
+      console.log("日志信息...targetClass:", (targetClass as any).name);
     }
 
     methodone() {
@@ -49,9 +49,13 @@ let test = new Test("wer");
 (test as any).methodone();
 test.eat();
 
+console.log("-----------------------");
+
 type TestConstructorType = new (...args: any) => Test;
-let LoggerSonClass = LoggerInfoDecorator(Test);
-let LoggerSonClassInstance = new LoggerSonClass("王五");
+// let LoggerSonClass2 = LoggerInfoDecorator<TestConstructorType>(Test);
+// let LoggerSonClass2 = LoggerInfoDecorator<typeof Test>(Test);
+let LoggerSonClass2 = LoggerInfoDecorator(Test);
+let LoggerSonClassInstance = new LoggerSonClass2("王五");
 LoggerSonClassInstance.methodone();
 
 export {};
