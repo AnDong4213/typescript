@@ -35,6 +35,7 @@ function LoggerInfoDecorator<T extends { new (...args: any): any }>(
 class Test {
   name: string;
   age!: number;
+  haha!: () => void;
 
   constructor(name: string) {
     this.name = name;
@@ -45,9 +46,14 @@ class Test {
   }
 }
 
+Test.prototype.haha = function () {
+  console.log("haha");
+};
+
 let test = new Test("wer");
 (test as any).methodone();
 test.eat();
+test.haha();
 
 console.log("-----------------------");
 

@@ -18,13 +18,18 @@ function Son(favor, sex) {
   this.favor = favor;
   this.sex = sex;
 }
+
 const son1 = new Son("篮球", "男");
 console.log("son1", son1);
 
 console.log("Son.prototype", Son.prototype);
+
 console.log("-----------------------------");
 
 Son.prototype = new Parent("张三", 25); // 原型链继承
+Son.prototype.haha = function () {
+  console.log("哈哈哈哈--");
+};
 
 console.log("Son.prototype.constructor", Son.prototype.constructor === Parent); // true
 Son.prototype.constructor = Son; // 容易被遗忘的
@@ -33,5 +38,7 @@ const son2 = new Son("游戏", "女");
 console.log("son2", son2);
 console.log("son2", son2.age);
 console.log("son2", son2.friends);
+son2.haha();
+
 console.log(Son.prototype === son2.__proto__); // true
 console.log(Son.prototype.__proto__ === Parent.prototype); // true

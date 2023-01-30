@@ -1,5 +1,5 @@
 // 寄生组合继承
-/* 
+/*
 寄生组合继承模式=借用构造函数继承+寄生继承。
 
 寄生组合继承既沿袭了借用构造函数+原型链继承两个优势，而且解决了借用构造函数+原型链继承调用了两次父类构造函数为属性赋值的不足。寄生组合继承模式保留了借用构造函数继承，寄生组合继承模式使用寄生继承代替了原型链继承。
@@ -44,6 +44,8 @@ const p = new ChinesePeople("小米", "1", "124", "中国2"); */
 }
 ChinesePeople.prototype = _extends(People, ChinesePeople);
 const p = new ChinesePeople("小米plus", "1", "124", "中国2"); */
+
+// Object.create() 方法创建一个新对象，使用现有的对象来提供新创建的对象的 __proto__。
 
 /* ChinesePeople.prototype = Object.create(People.prototype);
 ChinesePeople.prototype.constructor = ChinesePeople;

@@ -13,7 +13,7 @@ function People(name, sex, phone) {
 }
 
 People.prototype.doEat = function () {
-  console.log(this.name + "吃饭.p..");
+  console.log(this.name + "吃饭..p..");
 };
 
 function ChinesePeople(name, sex, phone, national) {
@@ -21,7 +21,9 @@ function ChinesePeople(name, sex, phone, national) {
   this.national = national;
 }
 ChinesePeople.prototype = new People(); // 进入 People 构造函数为属性赋值，分配内存空间，浪费内存；
+// ChinesePeople.prototype = People.prototype; // People.prototype.constructor指向了ChinesePeople，这是不对的
 ChinesePeople.prototype.constructor = ChinesePeople;
+// console.log(People.prototype.constructor);
 
 const p = new ChinesePeople("小米", "1", "124", "中国");
 console.log(p);

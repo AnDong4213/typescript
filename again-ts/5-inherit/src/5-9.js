@@ -1,5 +1,5 @@
 // 寄生组合继承
-/* 
+/*
 寄生组合继承模式=借用构造函数继承+寄生继承。
 
 寄生组合继承既沿袭了借用构造函数+原型链继承两个优势，而且解决了借用构造函数+原型链继承调用了两次父类构造函数为属性赋值的不足。寄生组合继承模式保留了借用构造函数继承，寄生组合继承模式使用寄生继承代替了原型链继承。
@@ -22,11 +22,15 @@ function ChinesePeople(name, sex, phone, national) {
   People.call(this, name, sex, phone);
   this.national = national;
 }
+
+ChinesePeople.prototype.haha = function () {
+  console.log("哈哈哈--");
+};
 /* function Middle() {}
 Middle.prototype = People.prototype;
 ChinesePeople.prototype = new Middle();
 ChinesePeople.prototype.constructor = ChinesePeople;
-const p = new ChinesePeople("小米", "1", "124", "中国2"); */
+const p = new ChinesePeople("宝来", "1", "124", "中国2"); */
 
 // 封装
 function _extends(parent, son) {
@@ -40,7 +44,9 @@ function _extends(parent, son) {
 }
 ChinesePeople.prototype = _extends(People, ChinesePeople);
 const p = new ChinesePeople("小米plus+", "1", "124", "中国2");
+
 console.log(p);
+// p.haha();
 
 // 主要用于遍历对象的可枚举属性，包括自有属性、继承自原型的属性
 for (let oo in p) {

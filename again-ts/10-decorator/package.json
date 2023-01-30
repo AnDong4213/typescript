@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src/ -e ts -x ts-node ./src/5/1FactoryClassDecorator.ts",
+    "dev": "nodemon --watch src/ -e ts -x ts-node ./src/5/inherit.ts",
     "dev:build": "tsc -w",
     "dev:start": "nodemon --watch dist/3 js --exec  node ./dist/3/1ClassDecorator.js",
     "start": "concurrently npm:dev:*",
-    "tsc": "tsc src/5/1FactoryClassDecorator.ts  --target ES5 -w --experimentalDecorators",
+    "tsc": "tsc src/5/inherit.ts  --target ES5 -w --experimentalDecorators",
     "ctrl": "ts-node src/controller/HomeController.ts",
     "beginapp": "nodemon --watch src/ -e ts --exec ts-node ./src/expressapp.ts",
-    "startparcel": "parcel ./index.html"
+    "startparcel": "parcel -p 1235 ./index.html"
   },
   "keywords": [],
   "author": "",
