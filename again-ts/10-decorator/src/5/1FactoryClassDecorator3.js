@@ -1,4 +1,5 @@
 "use strict";
+// 匿名
 var __extends =
   (this && this.__extends) ||
   (function () {
@@ -30,28 +31,6 @@ var __extends =
           : ((__.prototype = b.prototype), new __());
     };
   })();
-
-function LoggerInfoDecorator(targetClass) {
-  var LoggerSonClass = (function (_super) {
-    __extends(LoggerSonClass, _super);
-    function LoggerSonClass() {
-      var args = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
-      }
-      var _this = _super.apply(this, args) || this;
-      _this.__de = "装饰器属性";
-      console.log("日志信息...targetClass:", targetClass.name);
-      return _this;
-    }
-    LoggerSonClass.prototype.methodone = function () {
-      console.log("methodone:", this.name, this.__de);
-    };
-    return LoggerSonClass;
-  })(targetClass);
-  return LoggerSonClass;
-}
-
 var __decorate =
   (this && this.__decorate) ||
   function (decorators, target, key, desc) {
@@ -72,9 +51,28 @@ var __decorate =
     return c > 3 && r && Object.defineProperty(target, key, r), r;
   };
 
-// Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });
 
-var Test = (function () {
+function LoggerInfoDecorator(targetClass) {
+  return /** @class */ (function (_super) {
+    __extends(class_1, _super);
+    function class_1() {
+      var args = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+      }
+      var _this = _super.apply(this, args) || this;
+      _this.__de = "装饰器属性";
+      console.log("日志信息...targetClass:", targetClass.name);
+      return _this;
+    }
+    class_1.prototype.methodone = function () {
+      console.log("methodone:", this.name, this.__de);
+    };
+    return class_1;
+  })(targetClass);
+}
+var Test = /** @class */ (function () {
   function Test(name) {
     this.age = 9;
     this.name = name;
@@ -86,7 +84,7 @@ var Test = (function () {
   return Test;
 })();
 Test.prototype.haha = function () {
-  console.log("测试----====");
+  console.log("测试----");
 };
 var test = new Test("小米");
 test.methodone();

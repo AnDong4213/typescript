@@ -22,6 +22,7 @@ var __extends =
       extendStatics(d, b);
       function __() {
         this.constructor = d;
+        this.customProperty = "自定义的属性";
       }
       d.prototype =
         b === null
@@ -64,5 +65,6 @@ var Children = (function (_super) {
 
 var test = new Children(23, "小米", "本科");
 console.log(test);
+console.log(test.customProperty);
 test.getInfo();
 test.getInfo2();
