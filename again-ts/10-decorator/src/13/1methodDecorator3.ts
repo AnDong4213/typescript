@@ -46,3 +46,5 @@ class RoleService {
 
 const role = new RoleService();
 role.DistribRoles("小     吴", true);
+
+export {};
