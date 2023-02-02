@@ -11,7 +11,7 @@
     "tsc": "tsc src/13/propertyDecorator.ts  --target ES5 -w --experimentalDecorators",
     "ctrl": "ts-node src/controller/HomeController.ts",
     "beginapp": "nodemon --watch src/ -e ts --exec ts-node ./src/expressapp.ts",
-    "startparcel": "parcel -p 1235 ./index.html"
+    "startparcel": "parcel ./index2.html"
   },
   "keywords": [],
   "author": "",
