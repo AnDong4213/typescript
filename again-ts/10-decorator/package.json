@@ -4,21 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src/ -e ts -x ts-node ./src/13/propertyDecorator.ts",
+    "dev": "nodemon --watch src/ -e ts -x ts-node ./src/19/paramDecorator.ts",
     "dev:build": "tsc -w",
     "dev:start": "nodemon --watch dist/3 js --exec  node ./dist/3/1ClassDecorator.js",
     "start": "concurrently npm:dev:*",
-    "tsc": "tsc src/13/propertyDecorator.ts  --target ES5 -w --experimentalDecorators",
+    "tsc": "tsc src/19/paramDecorator.ts  --target ES5 -w --experimentalDecorators",
     "ctrl": "ts-node src/controller/HomeController.ts",
     "beginapp": "nodemon --watch src/ -e ts --exec ts-node ./src/expressapp.ts",
-    "startparcel": "parcel ./index2.html"
+    "startparcel": "parcel ./index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^7.4.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "parcel": "^2.8.3"

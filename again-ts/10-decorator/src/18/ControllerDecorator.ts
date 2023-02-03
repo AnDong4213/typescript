@@ -1,21 +1,14 @@
-import { Inject } from "./injectdecortator";
-import { PeopleService } from "./UserService";
-import CollectionInstance from "./Collection";
-import ControllerDecorator from "./ControllerDecorator";
-import MethodDecorator from "./methoddecorator";
+import "reflect-metadata";
 
-class Controller {
-  @Inject("PeopleService")
-  private peopleService?: PeopleService;
-
-  @MethodDecorator("/login")
-  public login(): void {
-    let peopleServiceInstace = CollectionInstance.get("userService");
-    peopleServiceInstace.login();
-  }
+export default function ControllerDecorator(rootPath: string) {
+  return function <T>(targetClass: { new (...args: any[]): T }) {
+    Object.keys(targetClass.prototype).forEach((methodnamekey) => {
+      const routerpath = Reflect.getMetadata(
+        "path",
+        targetClass.prototype,
+        methodnamekey
+      );
+      console.log("routerpath:", routerpath);
+    });
+  };
 }
-
-let controller = new Controller();
-controller.login();
-
-export {};
