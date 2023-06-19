@@ -10,7 +10,7 @@
                  animation="300"
                  @start="onStart"
                  @end="onEnd"
-                 group="group1"
+                 :group="{ name: 'group1', pull: 'clone', put: false }"
                  :fallback-class="true"
                  :fallback-on-body="true"
                  :touch-start-threshold="50"
@@ -118,7 +118,7 @@ const onEnd = () => {
 
 const onMove = (e, originalEvent) => {
   //不允许停靠
-  if (e.relatedContext.element.disabledPark == true) return false;
+  if (e.relatedContext.element.disabledPark) return false;
 
   return true;
 };

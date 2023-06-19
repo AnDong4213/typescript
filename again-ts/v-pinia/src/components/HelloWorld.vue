@@ -5,7 +5,7 @@
     {{ $data }}--{{ $props }}
     <h4>{{ i18n.greetings.hello }}</h4>
     <!-- <slot name="h2"></slot>
-    <slot></slot> -->
+      <slot></slot> -->
 
     <template v-for="(idx, slotName) in $slots">
       <slot :name="slotName"
@@ -32,7 +32,7 @@ export default {
     return {
       age: 9,
       slotObj: {
-        age: 3,
+        age: 3222,
         sex: 'female'
       }
     }
@@ -44,8 +44,9 @@ export default {
     console.log(this.$parent)
     console.log(this.$refs)
     console.log('$attrs', this.$attrs) */
-    // console.log(this.$slots)
+    console.log(this.$slots)
     console.log(this.$root.$)
+    // this.slotObj.age = 33
   }
 };
 </script>

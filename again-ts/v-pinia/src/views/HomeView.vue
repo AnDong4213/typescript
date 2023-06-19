@@ -7,9 +7,10 @@
     </HelloWorld>
 
     <hello-world msg="Welcome to Vue.js App-2">
-      <!-- <template #[h2]="h2Props"> -->
-      <template v-slot:[h2]="h2Props">
-        <h2>{{ h2Props }}</h2>
+      <template #[h2]="h2Props">
+        <!-- <template v-slot:[h2]="h2Props"> -->
+        <div style="color: blueviolet">{{ h2Props }}</div>
+        <h3 style="color: blue">{{ h2Props.sex }}</h3>
       </template>
     </hello-world>
 

@@ -31,11 +31,11 @@ const vFocus = {
 const vDrag = {
   mounted: (el, binding) => {
     console.log(el)
-    // el.style.color = 'red'
+    el.style.color = 'red'
 
-    // console.log(binding)
-    // console.log(binding.value)
-    // console.log(binding.instance)
+    console.log(binding)
+    console.log(binding.value)
+    console.log(binding.instance)
 
     binding.instance.$nextTick(() => {
       const dragDom = document.querySelector(binding.value[0])
