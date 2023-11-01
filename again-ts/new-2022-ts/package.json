@@ -1,0 +1,24 @@
+{
+  "name": "new-2022-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:start": "nodemon --watch src/ -e ts --exec ts-node ./src/app.ts",
+    "dev:parcel": "parcel --no-cache ./src/index.html --open",
+    "start": "concurrently npm:dev:*",
+    "tsc": "tsc src/app.ts  --target ES5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "parcel": "^2.10.1",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.2.2"
+  }
+}
