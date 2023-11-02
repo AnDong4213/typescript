@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev:start": "nodemon --watch src/ -e ts --exec ts-node ./src/app.ts",
-    "dev:parcel": "parcel --no-cache ./src/index.html --open",
+    "dev:parcel": "parcel --no-cache ./src/index.html",
     "start": "concurrently npm:dev:*",
     "tsc": "tsc src/app.ts  --target ES5"
   },
