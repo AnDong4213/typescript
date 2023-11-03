@@ -11,15 +11,15 @@
     // "disableReferencedProjectLoad": true, // 减少TypeScript自动加载的项目数量。
 
     /* Language and Environment */
-    "target": "es2016", // 为已发出的JavaScript设置JavaScript语言版本，并包含兼容的库声明
-    // "lib": [], // 指定一组描述目标运行时环境的绑定库声明文件
+    "target": "es2020", // 为已发出的JavaScript设置JavaScript语言版本，并包含兼容的库声明
+    "lib": ["es2020", "DOM"], // 指定一组描述目标运行时环境的绑定库声明文件
     // "jsx": "preserve", // 指定生成的JSX代码
-    // "experimentalDecorators": true,  // 启用对遗留实验性装饰器的实验性支持
-    // "emitDecoratorMetadata": true,  // 为源文件中的修饰声明发出设计类型元数据。
     // "jsxFactory": "",  // 指定针对React JSX emit时使用的JSX工厂函数，例如“React.createElement”或“h”
     // "jsxFragmentFactory": "", // 指定针对React JSX发射时用于片段的JSX片段引用，例如“React Fragment”或Fragment
     // "jsxImportSource": "",  // 指定在使用"jsx:react-jsx*"时用于导入JSX工厂函数的模块说明符。
     // "reactNamespace": "", // 指定为“createElement”调用的对象。这仅适用于以"react"JSX发射为目标的情况。
+    // "experimentalDecorators": true,  // 启用对遗留实验性装饰器的实验性支持
+    // "emitDecoratorMetadata": true,  // 为源文件中的修饰声明发出设计类型元数据。
     // "noLib": true, // 禁用包含任何库文件，包括默认的lib.d.ts
     // "useDefineForClassFields": true, // 发出符合ECMAScript标准的类字段
     // "moduleDetection": "auto", // 控制使用何种方法检测模块格式的JS文件
@@ -49,14 +49,14 @@
     // "maxNodeModuleJsDepth": 1,  // 指定用于检查“node_modules”中JavaScript文件的最大文件夹深度。仅适用于“allowJs”
 
     /* Emit */
-    // "declaration": true,  // 从项目中的TypeScript和JavaScript文件生成.d.ts文件
+    "declaration": true, // 从项目中的TypeScript和JavaScript文件生成.d.ts文件
     // "declarationMap": true,  // 为d.ts文件创建sourcemaps
     // "emitDeclarationOnly": true, // 只输出d.ts文件，不输出JavaScript文件
     // "sourceMap": true,  // 为发出的JavaScript文件创建source map文件
     // "inlineSourceMap": true, // Include sourcemap files inside the emitted JavaScript
     // "outFile": "./",  // 指定一个将所有输出捆绑到一个JavaScript文件中的文件。如果“declaration”为true，还指定一个绑定所有.d.ts输出的文件
     "outDir": "./dist", // 为所有发出的文件指定一个输出文件夹
-    // "removeComments": true,  // 禁用发出注释
+    "removeComments": true, // 禁用发出注释
     // "noEmit": true, // 禁用从编译中发出文件
     // "importHelpers": true, // 允许每个项目从tslib导入一次辅助函数，而不是每个文件都包含这些函数
     // "importsNotUsedAsValues": "remove", // 为仅用于类型的导入指定发出/检查行为
@@ -82,7 +82,7 @@
     "forceConsistentCasingInFileNames": true, // Ensure that casing is correct in imports.
 
     /* Type Checking */
-    "strict": true, // 启用所有严格的类型检查选项
+    "strict": true, // 启用所有严格的类型检查选项(相当于开启下边所有)
     // "noImplicitAny": true, // 为具有隐含“any”类型的表达式和声明启用错误报告
     // "strictNullChecks": true, // 在类型检查时，请考虑“null”和“undefined”
     // "strictFunctionTypes": true, // 在分配函数时，请检查以确保参数和返回值与子类型兼容
@@ -105,5 +105,7 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,  // Skip type checking .d.ts files that are included with TypeScript.
     "skipLibCheck": true // Skip type checking all .d.ts files.
-  }
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
