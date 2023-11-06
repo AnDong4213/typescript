@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:start": "nodemon --watch src/ -e ts --exec ts-node ./src/app.ts",
+    "dev:start": "nodemon --watch src/ -e ts --exec ts-node ./src/index.ts",
     "dev:parcel": "parcel --no-cache ./src/index.html",
     "start": "concurrently npm:dev:*",
-    "tsc": "tsc src/app.ts  --target ES5",
-    "tsnode": "ts-node ./src/app.ts"
+    "tsc": "tsc src/index.ts  --target ES5",
+    "tsnode": "ts-node ./src/index.ts"
   },
   "keywords": [],
   "author": "",
