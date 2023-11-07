@@ -41,3 +41,19 @@ type AppAttrToObj<T, K extends string, V> = {
 
 type Test = AppAttrToObj<Test1, "qq", string>;
 type Test3 = AppAttrToObj<Test, "weixin", string>;
+
+interface Todo {
+  title: string;
+  completed: boolean;
+  description: string;
+}
+
+/* type Omit1<T, K extends keyof T> = {
+  [P in keyof T as P extends K ? never : P]: T[P];
+}; */
+
+type Omit1<T, K extends keyof T> = {
+  [P in keyof T as Exclude<P, K>]: T[P];
+};
+
+type myOmit = Omit1<Todo, "title">;
