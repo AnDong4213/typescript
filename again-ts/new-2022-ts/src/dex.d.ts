@@ -1,3 +1,7 @@
+/*
+ ** 类型声明文件
+ */
+
 // type 和 interface可以不用加 declare
 
 /* type cssSelector = {

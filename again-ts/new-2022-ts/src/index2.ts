@@ -81,4 +81,50 @@ abstract class People {
   public abstract step(): void;
 }
 
+/* type A = {
+  foo: number;
+  bar: number;
+};
+
+type B = {
+  readonly [T in keyof A]?: A[T];
+};
+
+type MyObj = {
+  [p in "foo"]: number;
+}; */
+
+type A = {
+  foo: number;
+  bar: number;
+};
+
+type B = {
+  [p in keyof A as `${p}ID`]: A[p];
+};
+/* // 等同于
+type B = {
+  fooID: number;
+  barID: number;
+}; */
+
+interface Person {
+  name: string;
+  age: number;
+  location: string;
+}
+type Getters<T> = {
+  [P in keyof T as `get${Capitalize<string & P>}`]: () => T[P];
+};
+type LazyPerson = Getters<Person>;
+
+type User = {
+  name: string;
+  age: number;
+};
+type Filter<T> = {
+  [K in keyof T as T[K] extends string ? never : K]: T[K];
+};
+type FilteredUser = Filter<User>; // { name: string }
+
 export {};
